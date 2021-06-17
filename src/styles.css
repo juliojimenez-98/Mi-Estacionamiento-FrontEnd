@@ -3,6 +3,11 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-bg-primary{
+.bg-primary{
     background-color: #05a081;
 }
+.bg-secondary{
+    background-color: rgba(59,130,246,0.5);
+}
+
+
