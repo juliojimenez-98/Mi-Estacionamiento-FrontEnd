@@ -12,9 +12,9 @@
         focus:outline-none
         focus:border-green-600
       "
-      type="text"
-      #username
-      name="username"
+      type="email"
+      #correo
+      name="correo"
       placeholder="correo@gmail.com"
     />
   </div>
@@ -61,7 +61,7 @@
   <div>
     <button
       type="submit"
-      (click)="singIn(username.value, password.value, $event)"
+      (click)="singIn(correo.value, password.value, $event)"
       class="
         w-full
         flex
