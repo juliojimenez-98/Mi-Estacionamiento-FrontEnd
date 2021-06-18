@@ -2,6 +2,13 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300&family=Share&display=swap');
+
+
+html{
+
+    font-family: 'Share', cursive;
+}
 
 .bg-primary{
     background-color: #05a081;
