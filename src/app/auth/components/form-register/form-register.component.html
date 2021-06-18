@@ -1,4 +1,4 @@
-<form class="mt-8 space-y-6" action="#" method="POST">
+<form class="mt-8 space-y-6" #registerForm="ngForm" method="POST">
   <input type="hidden" name="remember" value="true" />
   <div class="lg:flex lg:justify-between lg:gap-3">
     <span class="lg:w-1/2">
@@ -8,9 +8,12 @@
         >Nombre</label
       >
       <input
+        #nombre="ngModel"
         id="nombre"
         type="text"
+        [(ngModel)]="user.nombre"
         name="nombre"
+        required
         placeholder="Ingresa tu nombre"
         class="
           w-full
@@ -22,6 +25,9 @@
         "
         required
       />
+      <div class="text-red-600" *ngIf="nombre.invalid && nombre.dirty">
+        <div *ngIf="nombre.errors?.required">sadasd</div>
+      </div>
     </span>
     <span class="lg:w-1/2">
       <label
@@ -32,6 +38,7 @@
       <input
         id="apellido"
         type="text"
+        [(ngModel)]="user.apellido"
         name="apellido"
         placeholder="Ingresa tu apellido"
         autocomplete="given-name"
@@ -58,6 +65,7 @@
         id="correo"
         type="email"
         name="correo"
+        [(ngModel)]="user.correo"
         placeholder="Ingresa tu correo"
         class="
           w-full
@@ -80,6 +88,7 @@
         id="password"
         type="password"
         name="password"
+        [(ngModel)]="user.password"
         placeholder="Ingresa tu contrasena"
         autocomplete="given-name"
         class="
@@ -99,10 +108,13 @@
       <label
         for="comuna"
         class="block text-xs font-semibold text-gray-600 uppercase"
-        >Comuna</label
+        >Comuna{{ user.comuna }}</label
       >
       <div class="relative inline-block w-full text-gray-700">
         <select
+          required
+          [(ngModel)]="user.comuna"
+          name="comuna"
           class="
             w-full
             h-10
@@ -117,11 +129,9 @@
           "
           placeholder="Regular input"
         >
-          <option>Selecciona una comuna</option>
-          <option *ngFor="let comuna of Comunas" value="{{ comuna.nombre }}">
+          <option *ngFor="let comuna of Comunas" [ngValue]="comuna.nombre">
             {{ comuna.nombre }}
           </option>
-          <option>Conchali</option>
         </select>
 
         <div
@@ -147,12 +157,14 @@
     </span>
     <span class="lg:w-2/4">
       <label
-        for="nombre"
+        for="direccion"
         class="block text-xs font-semibold text-gray-600 uppercase"
         >Direccion</label
       >
       <input
+        required
         id="direccion"
+        [(ngModel)]="user.direccion"
         type="text"
         name="direccion"
         placeholder="Ej: Calle 231"
@@ -164,7 +176,6 @@
           focus:outline-none
           focus:border-green-600
         "
-        required
       />
     </span>
     <span class="lg:w-1/4">
@@ -175,6 +186,7 @@
       >
       <input
         id="departamento"
+        [(ngModel)]="user.departamento"
         type="number"
         name="departamento"
         placeholder="Ej: 1125"
@@ -186,32 +198,19 @@
           focus:outline-none
           focus:border-green-600
         "
-        required
       />
     </span>
   </div>
 
   <div>
     <button
+      (click)="onSubmit()"
+      [disabled]="!registerForm.form.valid"
       type="submit"
-      class="
-        w-full
-        flex
-        justify-center
-        bg-primary
-        text-gray-100
-        p-4
-        rounded-full
-        tracking-wide
-        font-semibold
-        focus:outline-none
-        focus:shadow-outline
-        hover:bg-indigo-900
-        shadow-lg
-        cursor-pointer
-        transition
-        ease-in
-        duration-300
+      [ngClass]="
+        !registerForm.form.valid
+          ? 'opacity-70 w-full flex justify-center bg-gray-500 text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none focus:shadow-outline hover:bg-gray-700 shadow-lg cursor-pointer transition ease-in duration-300'
+          : 'w-full flex justify-center bg-primary text-gray-100 p-4 rounded-full tracking-wide font-semibold focus:outline-none focus:shadow-outline hover:bg-indigo-900 shadow-lg cursor-pointer transition ease-in duration-300'
       "
     >
       Iniciar Sesion
