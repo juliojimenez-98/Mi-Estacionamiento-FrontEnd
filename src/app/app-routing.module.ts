@@ -6,6 +6,11 @@ import { RegisterPageComponent } from './auth/pages/register-page/register-page.
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
+  {
+    path: 'mapas',
+    loadChildren: () =>
+      import('./mapas/mapas.module').then((m) => m.MapasModule),
+  },
 ];
 
 @NgModule({

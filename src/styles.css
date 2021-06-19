@@ -1,20 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300&family=Share&display=swap');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Khand:wght@300&family=Share&display=swap");
 
-
-html{
-
-    font-family: 'Share', cursive;
+html {
+  font-family: "Share", cursive;
 }
 
-.bg-primary{
-    background-color: #05a081;
-}
-.bg-secondary{
-    background-color: rgba(59,130,246,0.5);
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
-
+.bg-primary {
+  background-color: #05a081;
+}
+.bg-secondary {
+  background-color: rgba(59, 130, 246, 0.5);
+}

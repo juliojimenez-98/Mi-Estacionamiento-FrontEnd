@@ -1,0 +1,61 @@
+<app-menu></app-menu>
+<div #mapa id="mapa" class="h-screen w-full"></div>
+<div class="row-auto w-56 fixed bottom-0 z-10 bg-white">
+  <div class="">
+    <label>
+      zoom:{{ zoomLevel | number: "2.0-2" }} - lng,lat =[{{
+        center[0] | number: "2.4-4"
+      }},{{ center[1] | number: "2.4-4" }}]
+    </label>
+  </div>
+  <input
+    class="rounded-lg overflow-hidden appearance-none bg-blue-500 h-3 w-full"
+    type="range"
+    min="0"
+    max="20"
+    [value]="zoomLevel"
+    (input)="zoomCambio(zoomInput.value)"
+    #zoomInput
+  />
+  <div class="w-full">
+    <button
+      class="
+        inline-block
+        p-2
+        text-center text-white
+        transition
+        bg-blue-700
+        rounded
+        h-10
+        shadow
+        ripple
+        hover:shadow-lg
+        hover:bg-blue-800
+        focus:outline-none
+      "
+      (click)="zoomOut()"
+    >
+      -
+    </button>
+    <button
+      class="
+        float-right
+        inline-block
+        p-2
+        text-center text-white
+        transition
+        bg-blue-700
+        rounded
+        h-10
+        shadow
+        ripple
+        hover:shadow-lg
+        hover:bg-blue-800
+        focus:outline-none
+      "
+      (click)="zoomIn()"
+    >
+      +
+    </button>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<nav class="absolute z-10 flex-1 w-60 p-4 mt-6 overflow-y-hidden">
+  <ul
+    class="
+      ml-0
+      max-h-full
+      z-10
+      p-2
+      space-y-1
+      overflow-y-auto
+      neumorphism-shadow
+    "
+  >
+    <!-- Dashboard link -->
+    <li
+      *ngFor="let item of menuItems"
+      class="
+        z-10
+        items-center
+        shadow
+        px-4
+        py-2
+        bg-gray-100
+        text-gray-600
+        hover:bg-green-500
+        transition-transform
+        transform
+        rounded-md
+        hover:translate-x-1
+        focus:outline-none
+        focus:ring
+      "
+      [routerLink]="[item.ruta]"
+      routerLinkActive="active"
+    >
+      {{ item.nombre }}
+    </li>
+    <!-- Settings link -->
+  </ul>
+</nav>
