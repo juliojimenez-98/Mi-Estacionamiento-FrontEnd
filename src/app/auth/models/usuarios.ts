@@ -6,4 +6,5 @@ export interface Usuario {
   direccion: string;
   comuna: string;
   departamento: string;
+  role: string;
 }
