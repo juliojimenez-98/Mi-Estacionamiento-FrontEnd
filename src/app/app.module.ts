@@ -10,6 +10,9 @@ import { LoginPageComponent } from './auth/pages/login-page/login-page.component
 import { RegisterPageComponent } from './auth/pages/register-page/register-page.component';
 import { FormLoginComponent } from './auth/components/form-login/form-login.component';
 import { FormRegisterComponent } from './auth/components/form-register/form-register.component';
+import { HomeUsersComponent } from './home-usuarios/pages/home-users/home-users.component';
+import { SidebarComponent } from './home-usuarios/components/sidebar/sidebar.component';
+import { TopbarComponent } from './home-usuarios/components/topbar/topbar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { FormRegisterComponent } from './auth/components/form-register/form-regi
     RegisterPageComponent,
     FormLoginComponent,
     FormRegisterComponent,
+    HomeUsersComponent,
+    SidebarComponent,
+    TopbarComponent,
   ],
   imports: [
     BrowserModule,
