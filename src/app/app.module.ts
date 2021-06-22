@@ -13,6 +13,7 @@ import { FormRegisterComponent } from './auth/components/form-register/form-regi
 import { HomeUsersComponent } from './home-usuarios/pages/home-users/home-users.component';
 import { SidebarComponent } from './home-usuarios/components/sidebar/sidebar.component';
 import { TopbarComponent } from './home-usuarios/components/topbar/topbar.component';
+import { AgregarEstacionamientosComponent } from './home-usuarios/pages/agregar-estacionamientos/agregar-estacionamientos.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TopbarComponent } from './home-usuarios/components/topbar/topbar.compon
     HomeUsersComponent,
     SidebarComponent,
     TopbarComponent,
+    AgregarEstacionamientosComponent,
   ],
   imports: [
     BrowserModule,
