@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface sidebarOptions {
   titulo: string;
@@ -13,9 +14,21 @@ interface sidebarOptions {
 })
 export class HomeUsersComponent implements OnInit {
   hidden = false;
-  constructor() {}
+  usuario = JSON.parse(sessionStorage.getItem('user')!);
+  nombreUsuario = this.usuario.nombre;
+  apellidoUsuario = this.usuario.apellido;
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.nombreUsuario);
+  }
+
+  logout() {
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('user');
+    this.router.navigateByUrl('login');
+  }
+
   sidebarOpts: sidebarOptions[] = [
     {
       ruta: '/home/estacionamientos',

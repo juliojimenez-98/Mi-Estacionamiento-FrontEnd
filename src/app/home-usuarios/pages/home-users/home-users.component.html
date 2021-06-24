@@ -218,29 +218,44 @@
         </form>
         <div class="flex ml-auto">
           <a href class="flex flex-row items-center">
-            <img
-              src="https://pbs.twimg.com/profile_images/378800000298815220/b567757616f720812125bfbac395ff54_normal.png"
-              alt
-              class="h-10 w-10 bg-gray-200 border rounded-full"
-            />
             <span class="flex flex-col ml-2">
               <span
                 class="truncate w-20 font-semibold tracking-wide leading-none"
-                >John Doe</span
-              >
-              <span
-                class="truncate w-20 text-gray-500 text-xs leading-none mt-1"
-                >Manager</span
+                >{{ nombreUsuario }}</span
               >
             </span>
           </a>
+          <button
+            (click)="logout()"
+            class="
+              px-3
+              py-2
+              rounded-xl
+              font-medium
+              text-red-600
+              outline-none
+              focus:outline-none
+              m-1
+              hover:m-0
+              focus:m-0
+              border border-red-600
+              hover:border-4
+              focus:border-4
+              hover:border-gray-100 hover:text-gray-100 hover:bg-red-600
+              focus:border-purple-200
+              active:border-grey-900 active:text-grey-900
+              transition-all
+            "
+          >
+            Cerrar Sesion
+          </button>
         </div>
       </div>
     </header>
     <div class="main-content flex flex-col flex-grow p-4">
       <h1 class="font-bold text-2xl text-gray-700">Dashboard</h1>
 
-      <div class="flex flex-col flex-grow bg-white rounded mt-4">
+      <div class="flex flex-col flex-grow text-gray-900 bg-white rounded mt-4">
         <router-outlet></router-outlet>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Estacionamiento } from '../models/estacionamiento';
 
@@ -22,5 +23,17 @@ export class EstacionamientosService {
       estacionamiento,
       { headers }
     );
+  }
+
+  obtenerEstacionamientos(): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'x-token',
+      sessionStorage.getItem('token') || ''
+    );
+    return this.http
+      .get(`${environment.baseUrl}estacionamientos`, {
+        headers,
+      })
+      .pipe(map((res: any) => res.estacionamientos as Estacionamiento[]));
   }
 }

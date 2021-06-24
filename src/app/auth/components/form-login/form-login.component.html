@@ -1,6 +1,6 @@
 <form
   class="mt-8 space-y-6"
-  autocomplete="off"
+  autocomplete="on"
   [formGroup]="formLogin"
   (ngSubmit)="login()"
 >
@@ -9,6 +9,7 @@
     <div class="absolute right-0 mt-4"></div>
     <label class="text-sm font-bold text-gray-700 tracking-wide">Correo</label>
     <input
+      autocomplete="on"
       class="
         w-full
         text-base
@@ -43,7 +44,8 @@
     <div class="flex items-center">
       <input
         id="remember_me"
-        name="remember_me"
+        #recuerdame
+        name="recuerdame"
         type="checkbox"
         class="
           h-4

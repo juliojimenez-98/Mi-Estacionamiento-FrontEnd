@@ -11,11 +11,10 @@ import { RegisterPageComponent } from './auth/pages/register-page/register-page.
 import { FormLoginComponent } from './auth/components/form-login/form-login.component';
 import { FormRegisterComponent } from './auth/components/form-register/form-register.component';
 import { HomeUsersComponent } from './home-usuarios/pages/home-users/home-users.component';
-import { SidebarComponent } from './home-usuarios/components/sidebar/sidebar.component';
-import { TopbarComponent } from './home-usuarios/components/topbar/topbar.component';
 import { AgregarEstacionamientosComponent } from './home-usuarios/pages/agregar-estacionamientos/agregar-estacionamientos.component';
 import { EstacionamientosComponent } from './home-usuarios/components/estacionamientos/estacionamientos.component';
 import { MisEstacionamientosComponent } from './home-usuarios/components/mis-estacionamientos/mis-estacionamientos.component';
+import { MiniMapaComponent } from './home-usuarios/components/mini-mapa/mini-mapa.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +24,10 @@ import { MisEstacionamientosComponent } from './home-usuarios/components/mis-est
     FormLoginComponent,
     FormRegisterComponent,
     HomeUsersComponent,
-    SidebarComponent,
-    TopbarComponent,
     AgregarEstacionamientosComponent,
     EstacionamientosComponent,
     MisEstacionamientosComponent,
+    MiniMapaComponent,
   ],
   imports: [
     BrowserModule,

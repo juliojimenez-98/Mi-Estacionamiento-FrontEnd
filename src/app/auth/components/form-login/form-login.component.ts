@@ -11,14 +11,27 @@ import { LoginService } from '../../services/login.service';
 })
 export class FormLoginComponent {
   formLogin: FormGroup = this.fb.group({
-    correo: ['', [Validators.required, Validators.email]],
+    correo: [
+      sessionStorage.getItem('correoGuardado')
+        ? sessionStorage.getItem('correoGuardado')
+        : '',
+      [Validators.required, Validators.email],
+    ],
     password: ['', [Validators.required, Validators.minLength(2)]],
   });
+
+  recuerdame = false;
   constructor(
     private loginService: LoginService,
     private fb: FormBuilder,
     private router: Router
   ) {}
+
+  recordarCorreo() {
+    this.recuerdame = true;
+    const { correo } = this.formLogin.value;
+    sessionStorage.setItem('correoGuardado', correo);
+  }
 
   login() {
     Swal.fire({
@@ -32,7 +45,7 @@ export class FormLoginComponent {
       console.log(ok);
       if (ok === true) {
         Swal.close();
-        this.router.navigateByUrl('/home/agregar-estacionamiento');
+        this.router.navigateByUrl('/home/estacionamiento');
       } else {
         Swal.close();
         Swal.fire({

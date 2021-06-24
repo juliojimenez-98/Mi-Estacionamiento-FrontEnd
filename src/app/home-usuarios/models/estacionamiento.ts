@@ -5,4 +5,6 @@ export interface Estacionamiento {
   longitud: number;
   direccion: string;
   comuna: string;
+  estado?: string;
+  _id?: string;
 }

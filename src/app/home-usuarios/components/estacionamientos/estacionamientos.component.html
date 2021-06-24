@@ -2,7 +2,7 @@
 
 <div class="flex">
   <h1 class="mx-auto mt-3 text-2xl border-b-2 border-gray-300">
-    Lista de propiedades
+    Lista de estacionamientos
   </h1>
 </div>
 
@@ -17,15 +17,21 @@
     lg:grid-cols-4
   "
 >
-  <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
-    <!-- AQUI VA MINIMAPA -->
+  <div
+    *ngFor="let estacionamiento of estacionamientos"
+    class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative"
+  >
+    <app-mini-mapa
+      [longitud]="estacionamiento.longitud"
+      [latitud]="estacionamiento.latitud"
+    ></app-mini-mapa>
     <div
       class="
         badge
         absolute
         top-0
         right-0
-        bg-red-500
+        bg-green-450
         m-1
         text-gray-200
         p-1
@@ -35,7 +41,7 @@
         rounded
       "
     >
-      Live
+      En Arriendo
     </div>
     <div
       class="info-box text-xs flex p-1 font-semibold text-gray-500 bg-gray-300"
@@ -45,14 +51,14 @@
         href="https://www.youtube.com/watch?v=dvqT-E74Qlo"
         target="_new"
         class="title font-bold block cursor-pointer hover:underline"
-        >titulo</a
+        >{{ estacionamiento.titulo }}</a
       >
       <a
         href="https://www.youtube.com/user/sam14319"
         target="_new"
         class="
           badge
-          bg-indigo-500
+          bg-green-450
           text-blue-100
           rounded
           px-1
@@ -60,10 +66,14 @@
           font-bold
           cursor-pointer
         "
-        >@dynamo_gaming</a
+        >{{ estacionamiento.estado ? "No esta en arriendo" : "En arriendo" }}</a
       >
       <span class="description text-sm block py-2 border-gray-400 mb-2">
-        descripcion
+        {{ estacionamiento.descripcion }}
+      </span>
+
+      <span class="description text-sm block py-2 border-gray-400 mb-2">
+        {{ estacionamiento.direccion }}
       </span>
     </div>
   </div>
