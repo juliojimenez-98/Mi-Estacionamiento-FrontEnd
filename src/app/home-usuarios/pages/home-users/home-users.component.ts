@@ -12,7 +12,7 @@ interface sidebarOptions {
   styleUrls: ['./home-users.component.css'],
 })
 export class HomeUsersComponent implements OnInit {
-  hidden = true;
+  hidden = false;
   constructor() {}
 
   ngOnInit(): void {}
@@ -20,6 +20,11 @@ export class HomeUsersComponent implements OnInit {
     {
       ruta: '/home/estacionamientos',
       titulo: 'Estacionamientos',
+      icon: 'fa-solid fa-square-parking',
+    },
+    {
+      ruta: '/home/mis-estacionamientos',
+      titulo: 'Mis estacionamientos',
       icon: 'fa-solid fa-square-parking',
     },
     {

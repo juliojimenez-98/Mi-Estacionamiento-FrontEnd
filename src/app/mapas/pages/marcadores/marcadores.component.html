@@ -1,7 +1,7 @@
-<app-menu></app-menu>
 <ul class="z-40 fixed m-4 right-0 float-right">
   <li
     (click)="agregarMarcador()"
+    [ngClass]="{ hidden: !btnAgregar }"
     class="
       w-48
       text-center
@@ -17,27 +17,27 @@
   >
     Agregar
   </li>
-  <li
-    *ngFor="let marcador of marcadores; let i = index"
-    (click)="irMarcador(marcador.marker!)"
-    (dblclick)="borrarMarcador(i)"
-    [ngStyle]="{ 'background-color': marcador.color }"
-    class="
-      items-center
-      shadow
-      px-4
-      py-2
-      text-gray-100
-      transition-transform
-      transform
-      rounded-md
-      hover:translate-x-1
-      focus:outline-none
-      focus:ring
-      cursor-pointer
-    "
-  >
-    asd
-  </li>
 </ul>
+<button
+  [ngClass]="!btnAgregar ? 'block' : 'hidden'"
+  [routerLink]="['/home/agregar-estacionamiento']"
+  class="
+    z-40
+    fixed
+    mx-auto
+    w-48
+    text-center
+    bg-primary
+    hover:bg-indigo-800
+    text-white
+    font-semibold
+    py-2
+    px-4
+    rounded
+    cursor-pointer
+  "
+>
+  Listo
+</button>
+
 <div #mapa id="mapa" class="h-screen w-full"></div>

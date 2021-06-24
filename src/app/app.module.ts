@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,8 @@ import { HomeUsersComponent } from './home-usuarios/pages/home-users/home-users.
 import { SidebarComponent } from './home-usuarios/components/sidebar/sidebar.component';
 import { TopbarComponent } from './home-usuarios/components/topbar/topbar.component';
 import { AgregarEstacionamientosComponent } from './home-usuarios/pages/agregar-estacionamientos/agregar-estacionamientos.component';
+import { EstacionamientosComponent } from './home-usuarios/components/estacionamientos/estacionamientos.component';
+import { MisEstacionamientosComponent } from './home-usuarios/components/mis-estacionamientos/mis-estacionamientos.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { AgregarEstacionamientosComponent } from './home-usuarios/pages/agregar-
     SidebarComponent,
     TopbarComponent,
     AgregarEstacionamientosComponent,
+    EstacionamientosComponent,
+    MisEstacionamientosComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +37,7 @@ import { AgregarEstacionamientosComponent } from './home-usuarios/pages/agregar-
     HttpClientModule,
     FormsModule,
     SweetAlert2Module,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 import * as mapboxgl from 'mapbox-gl';
 
 interface MarcadorColor {
-  color: string;
+  color?: string;
   marker?: mapboxgl.Marker;
   centro?: [number, number];
 }
@@ -20,6 +20,7 @@ interface MarcadorColor {
   styles: [],
 })
 export class MarcadoresComponent implements AfterViewInit {
+  btnAgregar = true;
   @ViewChild('mapa') divMapa!: ElementRef;
   mapa!: mapboxgl.Map;
   zoomLevel: number = 15;
@@ -51,14 +52,15 @@ export class MarcadoresComponent implements AfterViewInit {
   }
 
   agregarMarcador() {
-    const color = '#xxxxxx'.replace(/x/g, (y) =>
-      ((Math.random() * 16) | 0).toString(16)
-    );
-    const nuevoMarcador = new mapboxgl.Marker({ draggable: true, color: color })
+    const nuevoMarcador = new mapboxgl.Marker({
+      draggable: true,
+      color: '#FF0000',
+    })
       .setLngLat(this.center)
       .addTo(this.mapa);
 
-    this.marcadores.push({ color, marker: nuevoMarcador });
+    this.btnAgregar = false;
+    this.marcadores.push({ marker: nuevoMarcador });
 
     this.guardarMarcadoresLocalStorage();
 

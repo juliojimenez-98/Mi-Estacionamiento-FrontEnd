@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LoginService } from '../../services/login.service';
 
@@ -7,39 +9,67 @@ import { LoginService } from '../../services/login.service';
   templateUrl: './form-login.component.html',
   styleUrls: ['./form-login.component.css'],
 })
-export class FormLoginComponent implements OnInit {
-  constructor(private loginService: LoginService) {}
+export class FormLoginComponent {
+  formLogin: FormGroup = this.fb.group({
+    correo: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(2)]],
+  });
+  constructor(
+    private loginService: LoginService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
-
-  singIn(correo: string, password: string, event: Event) {
-    event.preventDefault();
-    event.preventDefault();
+  login() {
     Swal.fire({
       allowOutsideClick: false,
       icon: 'info',
       text: 'Iniciando sesión...',
+      showConfirmButton: false,
     });
-    Swal.showLoading();
-    this.loginService.signIn(correo, password).subscribe(
-      (res) => {
+    const { correo, password } = this.formLogin.value;
+    this.loginService.login(correo, password).subscribe((ok) => {
+      console.log(ok);
+      if (ok === true) {
         Swal.close();
-        console.log(correo, password);
-        console.log(res);
-      },
-      (error) => {
+        this.router.navigateByUrl('/home/agregar-estacionamiento');
+      } else {
         Swal.close();
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: `${
-            error.error.msg
-              ? undefined
-              : 'Error del servidor intenta un rato mas tarde'
-          }`,
+          text: ok,
         });
-        console.log(error.error.msg);
       }
-    );
+    });
   }
+  //   event.preventDefault();
+  //   Swal.fire({
+  //     allowOutsideClick: false,
+  //     icon: 'info',
+  //     text: 'Iniciando sesión...',
+  //   });
+  //   Swal.showLoading();
+  //   this.loginService.signIn(correo, password).subscribe(
+  //     (res) => {
+  //       console.log(res);
+  //       Swal.close();
+  //       // sessionStorage.setItem('usuario', res[usuario]);
+  //       console.log(correo, password);
+  //     },
+  //     (error) => {
+  //       Swal.close();
+  //       Swal.fire({
+  //         icon: 'error',
+  //         title: 'Oops...',
+  //         text: `${
+  //           error.error.msg
+  //             ? undefined
+  //             : 'Error del servidor intenta un rato mas tarde'
+  //         }`,
+  //       });
+  //       console.log(error.error.msg);
+  //     }
+  //   );
+  // }
 }
