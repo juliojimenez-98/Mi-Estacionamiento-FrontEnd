@@ -15,6 +15,9 @@ import { AgregarEstacionamientosComponent } from './home-usuarios/pages/agregar-
 import { EstacionamientosComponent } from './home-usuarios/components/estacionamientos/estacionamientos.component';
 import { MisEstacionamientosComponent } from './home-usuarios/components/mis-estacionamientos/mis-estacionamientos.component';
 import { MiniMapaComponent } from './home-usuarios/components/mini-mapa/mini-mapa.component';
+import { HomePageComponent } from './home/pages/home-page/home-page.component';
+import { InicioComponent } from './home/components/inicio/inicio.component';
+import { NavbarComponent } from './home/shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { MiniMapaComponent } from './home-usuarios/components/mini-mapa/mini-map
     EstacionamientosComponent,
     MisEstacionamientosComponent,
     MiniMapaComponent,
+    HomePageComponent,
+    InicioComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

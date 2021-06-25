@@ -7,9 +7,16 @@ import { EstacionamientosComponent } from './home-usuarios/components/estacionam
 import { MisEstacionamientosComponent } from './home-usuarios/components/mis-estacionamientos/mis-estacionamientos.component';
 import { AgregarEstacionamientosComponent } from './home-usuarios/pages/agregar-estacionamientos/agregar-estacionamientos.component';
 import { HomeUsersComponent } from './home-usuarios/pages/home-users/home-users.component';
+import { InicioComponent } from './home/components/inicio/inicio.component';
+import { HomePageComponent } from './home/pages/home-page/home-page.component';
 
 const routes: Routes = [
+  { path: '', component: HomePageComponent, children:[
+  { path: 'inicio', component: InicioComponent },
+  ]},
   { path: 'login', component: LoginPageComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
   { path: 'register', component: RegisterPageComponent },
   {
     path: 'mapas',
