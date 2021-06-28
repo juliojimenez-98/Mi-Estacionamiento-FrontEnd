@@ -1,1 +1,118 @@
-<p>mis-estacionamientos works!</p>
+<!-- <app-menu></app-menu> -->
+
+<div class="flex">
+  <h1 class="mx-auto mt-3 text-2xl border-b-2 border-gray-300">
+    Mis estacionamientos agregados
+  </h1>
+</div>
+
+<div *ngIf="estacionamientos?.length! === 0" class="mt-11">
+  <div class="bg-gradient-to-b flex justify-center items-center">
+    <div class="bg-gray-900 rounded-lg">
+      <div class="w-96 border-t-8 border-green-450 rounded-lg flex">
+        <div class="w-full pt-9 text-center pr-4">
+          <h3 class="font-bold text-xl text-green-450">No hay nada aqui</h3>
+          <p class="py-4 text-lg text-gray-400">
+            No tienes estacionamientos registrados, Puedes agregar uno para que
+            lo arriendes.
+          </p>
+        </div>
+      </div>
+
+      <div class="p-4 flex space-x-4">
+        <button
+          [routerLink]="['/home/agregar-estacionamiento']"
+          class="
+            mx-auto
+            px-4
+            py-3
+            text-center text-gray-100
+            bg-green-450
+            rounded-lg
+            hover:bg-green-700 hover:text-white
+            font-bold
+            text-sm
+          "
+        >
+          Agregar estacionamiento
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="estacionamientos?.length! > 0"
+  class="
+    holder
+    mx-auto
+    w-10/12
+    grid
+    sm:grid-cols-1
+    md:grid-cols-3
+    lg:grid-cols-4
+  "
+>
+  <div
+    *ngFor="let estacionamiento of estacionamientos"
+    class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative"
+  >
+    <app-mini-mapa
+      [longitud]="estacionamiento.longitud"
+      [latitud]="estacionamiento.latitud"
+    ></app-mini-mapa>
+    <div
+      class="
+        badge
+        absolute
+        top-0
+        right-0
+        bg-green-450
+        m-1
+        text-gray-200
+        p-1
+        px-2
+        text-xs
+        font-bold
+        rounded
+      "
+    >
+      En Arriendo
+    </div>
+    <div
+      class="info-box text-xs flex p-1 font-semibold text-gray-500 bg-gray-300"
+    ></div>
+    <div class="desc p-4 text-gray-800">
+      <a
+        href="https://www.youtube.com/watch?v=dvqT-E74Qlo"
+        target="_new"
+        class="title font-bold block cursor-pointer hover:underline"
+        >{{ estacionamiento.titulo }}</a
+      >
+      <a
+        href="https://www.youtube.com/user/sam14319"
+        target="_new"
+        class="
+          badge
+          bg-green-450
+          text-blue-100
+          rounded
+          px-1
+          text-xs
+          font-bold
+          cursor-pointer
+        "
+        >{{ estacionamiento.estado ? "En arriendo" : "No esta en arriendo" }}</a
+      >
+      <span class="description text-sm block py-2 border-gray-400 mb-2">
+        {{ estacionamiento.descripcion }}
+      </span>
+
+      <span class="description text-sm block py-2 border-gray-400 mb-2">
+        {{ estacionamiento.direccion }}
+      </span>
+    </div>
+  </div>
+
+  <!-- each -->
+</div>

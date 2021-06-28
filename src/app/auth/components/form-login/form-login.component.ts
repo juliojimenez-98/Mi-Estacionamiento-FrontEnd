@@ -45,7 +45,7 @@ export class FormLoginComponent {
       console.log(ok);
       if (ok === true) {
         Swal.close();
-        this.router.navigateByUrl('/home/estacionamiento');
+        this.router.navigateByUrl('/home/estacionamientos');
       } else {
         Swal.close();
         Swal.fire({

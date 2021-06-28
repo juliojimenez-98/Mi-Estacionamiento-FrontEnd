@@ -11,9 +11,11 @@ import { InicioComponent } from './home/components/inicio/inicio.component';
 import { HomePageComponent } from './home/pages/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent, children:[
-  { path: 'inicio', component: InicioComponent },
-  ]},
+  {
+    path: '',
+    component: HomePageComponent,
+    children: [{ path: 'inicio', component: InicioComponent }],
+  },
   { path: 'login', component: LoginPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },

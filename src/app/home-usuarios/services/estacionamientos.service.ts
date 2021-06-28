@@ -36,4 +36,16 @@ export class EstacionamientosService {
       })
       .pipe(map((res: any) => res.estacionamientos as Estacionamiento[]));
   }
+
+  obtenerMisEstacionamientos(id: string): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'x-token',
+      sessionStorage.getItem('token') || ''
+    );
+    return this.http
+      .get(`${environment.baseUrl}buscar/mis-estacionamientos/${id}`, {
+        headers,
+      })
+      .pipe(map((res: any) => res.results as Estacionamiento[]));
+  }
 }

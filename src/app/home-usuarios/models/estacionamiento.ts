@@ -7,4 +7,5 @@ export interface Estacionamiento {
   comuna: string;
   estado?: string;
   _id?: string;
+  precio_arriendo?: number;
 }

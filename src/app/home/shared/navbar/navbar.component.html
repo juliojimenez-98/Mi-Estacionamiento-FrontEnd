@@ -1,78 +1,143 @@
-<nav id="header" class="fixed bg-gray-900 text-white w-full z-20 top-0">
-	<div id="progress" class="h-1 z-40 top-0"
-		></div>
-	<div class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
-		<div class="block lg:hidden pl-8 p-2">
-			<a class="text-green-450 font-bold text-base no-underline hover:no-underline" href="#">
-				Mi Estacionamiento
-			</a>
-		</div>
-		<div class="block lg:hidden pr-4">
-			<button id="nav-toggle" class="flex items-center px-3 py-2 text-green-450 border-gray-600 focus:outline-none">
-          <svg fill="text-green-450" viewBox="0 0 20 20" class="w-6 h-6 fill-current">
-            <title>Menu</title>
-            <path fill-rule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </button>
-		</div>
-		<div class="w-full flex-grow p-4 lg:flex lg:items-start lg:w-auto hidden  mt-2 lg:mt-0 bg-gray-900 md:bg-transparent z-20"
-			id="nav-content">
-			<ul class="list-reset lg:flex justify-start flex-1 items-start">
-				<li *ngFor="let item of navbarItems" class="mr-3">
-					<span class="hover:text-green-450  inline-block py-2 px-4 text-gray-100 cursor-pointer "
-						[routerLink]="[item.ruta]" routerLinkActive="border-green-450 border-b-0 md:border-b-4 text-green-450" >{{item.nombre}}</span>
-				</li>
-				
-			</ul>
-		</div>
-        <div class="float-right ">
-            <button class="
-            px-3
-            py-2 
-            rounded-xl
-            font-medium
-            text-green-450
-            outline-none
-            focus:outline-none
-            m-2
-            hover:m-0
-            focus:m-0
-            border border-green-450
-            hover:border-4
-            focus:border-4
-            hover:border-gray-100 hover:text-gray-100 hover:bg-green-450
-            focus:border-purple-200
-            active:border-grey-900 active:text-grey-900
-            transition-all
-            
-          ">Login</button>
-            <button class="
-            px-3
-            py-2
-            rounded-xl
-            font-medium
-            text-green-450
-            outline-none
-            focus:outline-none
-            m-2
-            hover:m-0
-            focus:m-0
-            border border-green-450
-            hover:border-4
-            focus:border-4
-            hover:border-gray-100 hover:text-gray-100 hover:bg-green-450
-            focus:border-purple-200
-            active:border-grey-900 active:text-grey-900
-            transition-all
-            
-          ">Registro</button>
-        </div>
-	</div>
+<nav id="header" class="bg-gray-900 text-white w-full top-0">
+  <div id="progress" class="h-1 z-40 top-0"></div>
+  <div
+    class="
+      w-full
+      md:max-w-4xl
+      mx-auto
+      flex flex-wrap
+      items-center
+      justify-between
+      mt-0
+      py-3
+    "
+  >
+    <div class="block lg:hidden pl-8 p-2">
+      <a
+        class="
+          text-green-450
+          font-bold
+          text-base
+          no-underline
+          hover:no-underline
+        "
+        href="#"
+      >
+        Mi Estacionamiento
+      </a>
+    </div>
+    <div class="block lg:hidden pr-4">
+      <button
+        id="nav-toggle"
+        class="
+          flex
+          items-center
+          px-3
+          py-2
+          text-green-450
+          border-gray-600
+          focus:outline-none
+        "
+      >
+        <svg
+          fill="text-green-450"
+          viewBox="0 0 20 20"
+          class="w-6 h-6 fill-current"
+        >
+          <title>Menu</title>
+          <path
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div
+      class="
+        w-full
+        flex-grow
+        p-4
+        lg:flex lg:items-start lg:w-auto
+        hidden
+        mt-2
+        lg:mt-0
+        bg-gray-900
+        md:bg-transparent
+        z-20
+      "
+      id="nav-content"
+    >
+      <ul class="list-reset lg:flex justify-start flex-1 items-start">
+        <li *ngFor="let item of navbarItems" class="mr-3">
+          <span
+            class="
+              hover:text-green-450
+              inline-block
+              py-2
+              px-4
+              text-gray-100
+              cursor-pointer
+            "
+            [routerLink]="[item.ruta]"
+            routerLinkActive="border-green-450 border-b-0 md:border-b-4 text-green-450"
+            >{{ item.nombre }}</span
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="float-right">
+      <button
+        [routerLink]="['login']"
+        class="
+          px-3
+          py-2
+          rounded-xl
+          font-medium
+          text-green-450
+          outline-none
+          focus:outline-none
+          m-2
+          hover:m-0
+          focus:m-0
+          border border-green-450
+          hover:border-4
+          focus:border-4
+          hover:border-gray-100 hover:text-gray-100 hover:bg-green-450
+          focus:border-purple-200
+          active:border-grey-900 active:text-grey-900
+          transition-all
+        "
+      >
+        Login
+      </button>
+      <button
+        [routerLink]="['register']"
+        class="
+          px-3
+          py-2
+          rounded-xl
+          font-medium
+          text-green-450
+          outline-none
+          focus:outline-none
+          m-2
+          hover:m-0
+          focus:m-0
+          border border-green-450
+          hover:border-4
+          focus:border-4
+          hover:border-gray-100 hover:text-gray-100 hover:bg-green-450
+          focus:border-purple-200
+          active:border-grey-900 active:text-grey-900
+          transition-all
+        "
+      >
+        Registro
+      </button>
+    </div>
+  </div>
 </nav>
-
-
 
 <!-- <script>
 	var h = document.documentElement,
