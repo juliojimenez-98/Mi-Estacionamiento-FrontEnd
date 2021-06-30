@@ -22,7 +22,6 @@ export class MisEstacionamientosComponent implements OnInit {
   obtenerMisEstacionamientos() {
     this.service.obtenerMisEstacionamientos(this.id).subscribe((res) => {
       this.estacionamientos = res as Estacionamiento[];
-      console.log(this.estacionamientos);
     });
   }
 }

@@ -48,4 +48,33 @@ export class EstacionamientosService {
       })
       .pipe(map((res: any) => res.results as Estacionamiento[]));
   }
+
+  obtenerEstacionamientoById(id: string): Observable<Estacionamiento> {
+    const headers = new HttpHeaders().set(
+      'x-token',
+      sessionStorage.getItem('token') || ''
+    );
+    return this.http.get<Estacionamiento>(
+      `${environment.baseUrl}estacionamientos/${id}`,
+      {
+        headers,
+      }
+    );
+  }
+
+  updateEstacionamiento(
+    estacionamiento: Estacionamiento
+  ): Observable<Estacionamiento> {
+    const headers = new HttpHeaders().set(
+      'x-token',
+      sessionStorage.getItem('token') || ''
+    );
+    return this.http.put<Estacionamiento>(
+      `${environment.baseUrl}estacionamientos/${estacionamiento._id}`,
+      estacionamiento,
+      {
+        headers,
+      }
+    );
+  }
 }

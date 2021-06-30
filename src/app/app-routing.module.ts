@@ -4,6 +4,7 @@ import { EstaAutenticadoGuard } from './auth/guards/esta-autenticado.guard';
 import { LoginPageComponent } from './auth/pages/login-page/login-page.component';
 import { RegisterPageComponent } from './auth/pages/register-page/register-page.component';
 import { EstacionamientosComponent } from './home-usuarios/components/estacionamientos/estacionamientos.component';
+import { MiEstacionamientoDetailComponent } from './home-usuarios/components/mi-estacionamiento-detail/mi-estacionamiento-detail.component';
 import { MisEstacionamientosComponent } from './home-usuarios/components/mis-estacionamientos/mis-estacionamientos.component';
 import { AgregarEstacionamientosComponent } from './home-usuarios/pages/agregar-estacionamientos/agregar-estacionamientos.component';
 import { HomeUsersComponent } from './home-usuarios/pages/home-users/home-users.component';
@@ -11,6 +12,7 @@ import { InicioComponent } from './home/components/inicio/inicio.component';
 import { HomePageComponent } from './home/pages/home-page/home-page.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   {
     path: '',
     component: HomePageComponent,
@@ -18,7 +20,6 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginPageComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'register', component: RegisterPageComponent },
   { path: 'register', component: RegisterPageComponent },
   {
     path: 'mapas',
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         path: 'mis-estacionamientos',
         component: MisEstacionamientosComponent,
+      },
+      {
+        path: 'mis-estacionamientos/:id',
+        component: MiEstacionamientoDetailComponent,
       },
     ],
     canActivate: [EstaAutenticadoGuard],

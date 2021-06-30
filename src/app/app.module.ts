@@ -18,6 +18,7 @@ import { MiniMapaComponent } from './home-usuarios/components/mini-mapa/mini-map
 import { HomePageComponent } from './home/pages/home-page/home-page.component';
 import { InicioComponent } from './home/components/inicio/inicio.component';
 import { NavbarComponent } from './home/shared/navbar/navbar.component';
+import { MiEstacionamientoDetailComponent } from './home-usuarios/components/mi-estacionamiento-detail/mi-estacionamiento-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NavbarComponent } from './home/shared/navbar/navbar.component';
     HomePageComponent,
     InicioComponent,
     NavbarComponent,
+    MiEstacionamientoDetailComponent,
   ],
   imports: [
     BrowserModule,

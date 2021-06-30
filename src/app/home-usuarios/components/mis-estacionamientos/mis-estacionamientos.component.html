@@ -61,48 +61,25 @@
       [longitud]="estacionamiento.longitud"
       [latitud]="estacionamiento.latitud"
     ></app-mini-mapa>
-    <div
-      class="
-        badge
-        absolute
-        top-0
-        right-0
-        bg-green-450
-        m-1
-        text-gray-200
-        p-1
-        px-2
-        text-xs
-        font-bold
-        rounded
-      "
-    >
-      En Arriendo
-    </div>
+
     <div
       class="info-box text-xs flex p-1 font-semibold text-gray-500 bg-gray-300"
     ></div>
     <div class="desc p-4 text-gray-800">
       <a
-        href="https://www.youtube.com/watch?v=dvqT-E74Qlo"
+        [routerLink]="[estacionamiento._id]"
         target="_new"
         class="title font-bold block cursor-pointer hover:underline"
         >{{ estacionamiento.titulo }}</a
       >
-      <a
+      <span
         href="https://www.youtube.com/user/sam14319"
         target="_new"
-        class="
-          badge
-          bg-green-450
-          text-blue-100
-          rounded
-          px-1
-          text-xs
-          font-bold
-          cursor-pointer
-        "
-        >{{ estacionamiento.estado ? "En arriendo" : "No esta en arriendo" }}</a
+        [ngClass]="estacionamiento.estado ? 'bg-green-450' : 'bg-red-600'"
+        class="badge text-blue-100 rounded px-1 text-xs font-bold"
+        >{{
+          estacionamiento.estado ? "En arriendo" : "No esta en arriendo"
+        }}</span
       >
       <span class="description text-sm block py-2 border-gray-400 mb-2">
         {{ estacionamiento.descripcion }}

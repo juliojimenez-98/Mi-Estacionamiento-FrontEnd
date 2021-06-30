@@ -1,0 +1,144 @@
+<div class="leading-loose">
+  <form class="max-w-xl mx-auto m-4 p-10 bg-gray-900 rounded shadow-xl">
+    <p class="text-green-450 text-2xl font-medium underline">
+      {{ estacionamiento.titulo }}
+    </p>
+    <div class="">
+      <label class="block text-lg text-gray-100" for="titulo">Titulo</label>
+      <input
+        class="w-full px-5 py-1 text-gray-900 bg-gray-200 rounded"
+        name="titulo"
+        type="text"
+        [(ngModel)]="estacionamiento.titulo"
+        required
+        placeholder="Titulo del estacionamiento"
+        aria-label="Name"
+      />
+    </div>
+    <div class="mt-2">
+      <label class="block text-lg text-gray-100" for="cus_email"
+        >Descripcion</label
+      >
+      <textarea
+        class="w-full px-2 py-2 text-gray-900 bg-gray-200 rounded"
+        id="cus_email"
+        name="descripcion"
+        [(ngModel)]="estacionamiento.descripcion"
+        type="text"
+        required=""
+        placeholder="descripcion del estacionamiento"
+        aria-label="Email"
+      ></textarea>
+    </div>
+    <div class="mt-2">
+      <label class="block text-lg text-gray-100" for="comuna">Comuna</label>
+      <input
+        disabled
+        class="w-full px-5 py-1 text-gray-900 bg-gray-200 rounded opacity-70"
+        name="comuna"
+        [(ngModel)]="estacionamiento.comuna"
+        type="text"
+        required=""
+        placeholder="Your Email"
+        aria-label="Email"
+      />
+    </div>
+    <div class="">
+      <label class="block text-lg text-gray-100" for="titulo">Direccion</label>
+      <input
+        class="w-full px-5 py-1 text-gray-900 bg-gray-200 rounded"
+        name="direccion"
+        type="text"
+        [(ngModel)]="estacionamiento.direccion"
+        required
+        placeholder="Direccion del estacionamiento"
+        aria-label="Name"
+      />
+    </div>
+    <div class="mt-2 mb-3 space-y-2 w-full text-lg">
+      <label class="block text-lg text-gray-100">Precio de arriendo</label>
+      <div class="flex flex-wrap items-stretch w-full mb-4 relative">
+        <div class="flex">
+          <span
+            class="
+              flex
+              items-center
+              leading-normal
+              bg-grey-lighter
+              border-1
+              rounded-r-none
+              border border-r-0 border-green-450
+              px-3
+              whitespace-no-wrap
+              text-grey-dark text-sm
+              w-12
+              h-10
+              bg-green-450
+              justify-center
+              items-center
+              text-xl
+              rounded-lg
+              text-white
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </span>
+        </div>
+        <input
+          name="precio_arriendo"
+          [(ngModel)]="estacionamiento.precio_arriendo"
+          type="number"
+          required=""
+          placeholder="Ej:300.000"
+          aria-label="Email"
+          class="
+            flex-shrink flex-grow flex-auto
+            leading-normal
+            w-px
+            flex-1
+            border border-l-0
+            h-10
+            border-grey-light
+            rounded-lg rounded-l-none
+            px-3
+            relative
+            focus:border-blue focus:shadow
+          "
+        />
+      </div>
+    </div>
+
+    <div class="flex mt-4">
+      <button
+        (click)="updateEstacionamiento()"
+        type="submit"
+        class="
+          mt-4
+          mx-auto
+          focus:outline-none
+          text-white text-sm
+          py-2.5
+          px-5
+          rounded-md
+          bg-green-450
+          hover:bg-green-700 hover:shadow-lg
+        "
+      >
+        Actualizar Estacionamiento
+      </button>
+    </div>
+  </form>
+</div>
